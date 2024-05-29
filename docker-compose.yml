@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  flask_app:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - "D:/flask:/app"  # 挂载本地D:\flask目录到容器内的/app目录
+  #   depends_on:
+  #     - ollama_model
+
+  # ollama_model:
+  #   image: ollama/ollama  # 替换为实际的Ollama LLM模型镜像名称
+  #   ports:
+  #     - "11434:11434"  # 替换为实际端口配置
