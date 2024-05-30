@@ -9,7 +9,9 @@
 ## 問題排解!!
 
 ### 1. 跑的時候會有兩個IP 127.0.0.1:5000 和 172.17.0.2:5000， <br />
-基本上127.0.0.1:5000會連不上，但是另外一個172.17.0.2:5000可以跑，可以兩個URL都試試看。
+127.0.0.1:5000可能會連不上的原因可以參考這篇 [nlp_ollama_flask](https://github.com/weitsung50110/nlp_ollama_flask) **裡面有提到port端口 -p教學**。
+
+基本上127.0.0.1:5000會連不上，是因為docker run的時候你沒有宣告-p 5000:5000造成的，總之可以兩個URL都試試看。
 
         root@4be643ba6a94:/app/flask# python3 app.py
         * Serving Flask app 'app'
