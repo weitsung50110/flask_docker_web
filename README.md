@@ -9,7 +9,7 @@
 ## 問題排解!!
 
 ### 1. 跑的時候會有兩個IP 127.0.0.1:5000 和 172.17.0.2:5000， <br />
-常常有時候其中一個會失效，但是另外一個可以跑，所以請兩個URL都試試看。
+基本上127.0.0.1:5000會連不上，但是另外一個172.17.0.2:5000可以跑，可以兩個URL都試試看。
 
         root@4be643ba6a94:/app/flask# python3 app.py
         * Serving Flask app 'app'
@@ -48,4 +48,11 @@
 
 在嘗試Docker Compose 方案時，請確保你的Flask 應用程式在app.run() 中確實是使用0.0.0.0 進行監聽，而不是127.0.0.1，因為後者只會在容器內部可用，而前者會使得應用程序對外可見。
 
+### 如果沒有加上app.run(host='0.0.0.0', debug=True)，會只有一個不能連結的網址出現，所以一定要加上host='0.0.0.0'
+
+- 沒加上app.run(host='0.0.0.0', debug=True)
+![](https://github.com/weitsung50110/flask_docker_web/blob/master/github_imgs/0.png)
+
+- 有加上app.run(host='0.0.0.0', debug=True)
+![](https://github.com/weitsung50110/flask_docker_web/blob/master/github_imgs/1.png)
 
